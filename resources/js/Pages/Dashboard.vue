@@ -1,5 +1,5 @@
 <template>
-    <Head title="Dashboard" />
+    <Head title="Domov" />
 
     <BreezeAuthenticatedLayout>
         <template #header>
