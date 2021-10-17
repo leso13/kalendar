@@ -37,6 +37,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'dayNames' => [
+                'short' => ['pon', 'uto', 'str', 'štv', 'pia', 'sob', 'ned'],
+                'long' => ['pondelok', 'utorok', 'streda', 'štvtok', 'piatok', 'sobota', 'nedeľa'],
+            ],
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Stubs\Calendar;
+use Carbon\Carbon;
 use Inertia\Inertia;
 
 class MainController extends Controller
@@ -20,11 +21,17 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $month = $this->calendar->getMonth();
-        // $month = $this->calendar->getMonth('1615812955');
-        return Inertia::render('Dashboard');
+        // dump($request->TS);
+        $miniCalendar = $this->calendar->getCalendar();
+        $selectedDay = '';
+        !empty($request->selectedDay) 
+            ?  ($selectedDay = $request->selectedDay ) 
+            : ( $selectedDay = Carbon::today()->timestamp );
+
+        // $request->remove('selectedDay');
+        return Inertia::render('Dashboard', compact('miniCalendar', 'selectedDay'));
     }
 
     /**
@@ -54,9 +61,9 @@ class MainController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($TS)
     {
-        //
+
     }
 
     /**
