@@ -16,87 +16,49 @@ class MainController extends Controller
         $this->calendar = $calendar;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        // dump($request->TS);
         $miniCalendar = $this->calendar->getCalendar();
         $selectedDay = '';
         !empty($request->selectedDay) 
             ?  ($selectedDay = $request->selectedDay ) 
             : ( $selectedDay = Carbon::today()->timestamp );
 
-        // $request->remove('selectedDay');
         return Inertia::render('Dashboard', compact('miniCalendar', 'selectedDay'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+  
+    public function api(Request $request)
     {
-        //
+        $date = Carbon::createFromDate($request->year, $request->month, 1);
+
+        switch ( $request->control ) {
+            case 'prev':
+                $miniCalendar = $this->getPrevMonth($date);
+                break;
+            case 'next':
+                $miniCalendar = $this->getNextMonth($date);
+                break;
+            default:
+                return redirect()->route('dashboard');
+        }
+        
+        return Inertia::render('Dashboard', compact('miniCalendar'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function getPrevMonth($date)
     {
-        //
+        $date->subMonth();
+        $miniCalendar = $this->calendar->getCalendar($date->timestamp);
+
+        return $miniCalendar;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($TS)
+    public function getNextMonth($date)
     {
+        $date->addMonth();
+        $miniCalendar = $this->calendar->getCalendar($date->timestamp);
 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return $miniCalendar;
     }
 }

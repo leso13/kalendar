@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -32,10 +33,14 @@ Route::get('/', function () {
     
 });
 
-Route::resource('dashboard', MainController::class)
+Route::resource('category', CategoryController::class)
     ->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', [MainController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::post('/dashboard', [MainController::class, 'api'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

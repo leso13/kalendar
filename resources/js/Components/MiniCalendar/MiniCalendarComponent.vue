@@ -5,13 +5,15 @@
             :year="miniCalendar.year"
             :month="miniCalendar.month"
         />
-        <mini-calendar-body :miniCalendar="miniCalendar" />
+        <mini-calendar-body 
+            :miniCalendar="miniCalendar"
+        />
     </div>
 </template>
 
 <script>
     import MiniCalendarBody from './MiniCalendarBody.vue'
-    import MiniCalendarControl from './miniCalendarControl.vue'
+    import MiniCalendarControl from './MiniCalendarControl.vue'
 
     export default {
         components: { MiniCalendarBody, MiniCalendarControl },

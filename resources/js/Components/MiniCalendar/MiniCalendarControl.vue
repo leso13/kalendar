@@ -4,7 +4,7 @@
             <h1 class="capitalize font-bold text-xl">{{ month_name(month) }} {{ year }}</h1>
         </div>
         <div class="flex">
-            <button class="focus:outline-none" @click="getNextMonth()">
+            <button class="focus:outline-none" @click="getPrevMonth()">
                 <chevron-left-icon class="h-8 w-8 text-blue-500"/>
             </button>
             <button class="focus:outline-none" @click="getNextMonth()">
@@ -28,12 +28,14 @@
         props: {
             year: Number,
             month: Number,
-            selectedDay: Number,
         },
         methods: {
+            getPrevMonth() {
+                Inertia.post('/dashboard', { control: 'prev', month: this.month, year: this.year }, { only: ['miniCalendar'], preserveScroll: true })
+            },
             getNextMonth() {
-                Inertia.get('/dashboard', { selectedDay: this.selectedDay }, { only: ['miniCalendar'] })
-            }
+                Inertia.post('/dashboard', { control: 'next', month: this.month, year: this.year }, { only: ['miniCalendar'], preserveScroll: true })
+            },
         },
     }
 </script>

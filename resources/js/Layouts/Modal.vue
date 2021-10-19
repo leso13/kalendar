@@ -1,0 +1,33 @@
+<template>
+    <div class="fixed text-gray-500 flex items-center justify-center overflow-auto left-0 right-0 top-0 bottom-0 bg-gray-600 bg-opacity-60 backdrop-filter backdrop-blur-xs"
+     
+    >
+        <div class="bg-gray-100 rounded-xl shadow-lg p-6 mx-4 w-2/4">
+            <!-- Modal Heading -->
+            <header class="text-2xl pl-1 mb-3 font-bold text-gray-800" v-if="$slots.header">
+                <slot name="header" />
+            </header>
+            <!-- Modal Body -->
+            <div>
+                <slot />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                showCategoryModal: true
+            }
+        },
+        methods: {
+       
+        },   
+    }
+</script>
+
+<style lang="scss" scoped>
+
+</style>
