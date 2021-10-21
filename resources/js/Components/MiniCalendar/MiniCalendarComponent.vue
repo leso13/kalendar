@@ -1,12 +1,10 @@
 <template>
     <div>
         <mini-calendar-control
-            :selectedDay="selectedDay"
-            :year="miniCalendar.year"
-            :month="miniCalendar.month"
+            :control="miniCalendar.control"
         />
         <mini-calendar-body 
-            :miniCalendar="miniCalendar"
+            :days="miniCalendar.days"
         />
     </div>
 </template>
@@ -20,7 +18,6 @@
         
         props: {
             miniCalendar: Object,
-            selectedDay: Number,
         },
     }
 </script>

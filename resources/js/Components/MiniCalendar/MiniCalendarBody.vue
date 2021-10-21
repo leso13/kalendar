@@ -20,11 +20,11 @@
 <script>
     export default {
         props: {
-            miniCalendar: Object,
+            days: Object,
         },
         computed: {
             chunkedDays() {
-                return _.chunk(this.miniCalendar.days, 7)
+                return _.chunk(this.days, 7)
             }
         },
     }

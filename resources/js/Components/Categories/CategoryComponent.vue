@@ -6,6 +6,7 @@
         />
         <category-list
             :categories="categories"
+            :showEditCategories="showEditCategories"
         />
     </div>
 </template>
@@ -26,8 +27,7 @@
             return {
                 showEditCategories: false
             }
-        },
-            
+        },        
     }
 </script>
 

@@ -34,7 +34,7 @@
         },
         methods: {
             showModalAddCategory() {
-                // this.$emit('showModalAddCategory')
+                window.eventBus.emit('showModalAddCategory')
             },
             editCategoryList() {
                 this.$emit('toggleEditCategories')

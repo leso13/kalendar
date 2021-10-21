@@ -14,13 +14,18 @@ class Calendar
     public function getCalendar($TS = '')
     {
         $calendar = new Calendar();
+        $control = new stdClass();
+        $selectedDay = new Carbon();
         $calendar->days = [];
         $today = Carbon::today();
-        $selectedDay = new Carbon();
         
         !empty($TS) ? ( $selectedDay = Carbon::createFromTimestamp($TS)->startOfDay() ) : ( $selectedDay = $today );
-        $calendar->month = $selectedDay->month;
-        $calendar->year = $selectedDay->year;
+
+        $control->month = $selectedDay->month;
+        $control->year = $selectedDay->year;
+        $control->selectedDay = $selectedDay->timestamp;
+        $calendar->control = $control;
+
         $currentMonth = $selectedDay->month;
         $tempDay = $selectedDay->copy()->startOfMonth();
 
@@ -40,7 +45,22 @@ class Calendar
             $tempDay->addDay();
         }
         return $calendar;
-        
+    }
+
+    public function getWeek($TS = '')
+    {
+        $calendar = new Calendar();
+        $control = new stdClass();
+        $selectedDay = new Carbon();
+        $calendar->days = [];
+        $today = Carbon::today();
+
+        !empty($TS) ? ( $selectedDay = Carbon::createFromTimestamp($TS)->startOfDay() ) : ( $selectedDay = $today );
+
+        $control->month = $selectedDay->month;
+        $control->year = $selectedDay->year;
+        $control->selectedDay = $selectedDay->timestamp;
+        $calendar->control = $control;
     }
 
 }

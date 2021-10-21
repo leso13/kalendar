@@ -19,31 +19,42 @@ class MainController extends Controller
     public function index(Request $request)
     {
         $miniCalendar = $this->calendar->getCalendar();
+        $categories = auth()->user()->categories;
         $selectedDay = '';
         !empty($request->selectedDay) 
             ?  ($selectedDay = $request->selectedDay ) 
             : ( $selectedDay = Carbon::today()->timestamp );
 
-        return Inertia::render('Dashboard', compact('miniCalendar', 'selectedDay'));
+        return Inertia::render('Dashboard', compact('miniCalendar', 'selectedDay', 'categories'));
     }
 
   
     public function api(Request $request)
     {
-        $date = Carbon::createFromDate($request->year, $request->month, 1);
+        
 
         switch ( $request->control ) {
             case 'prev':
+                $date = Carbon::createFromDate($request->year, $request->month, 1);
                 $miniCalendar = $this->getPrevMonth($date);
+                return Inertia::render('Dashboard', compact('miniCalendar'));
                 break;
+
             case 'next':
+                $date = Carbon::createFromDate($request->year, $request->month, 1);
                 $miniCalendar = $this->getNextMonth($date);
+                return Inertia::render('Dashboard', compact('miniCalendar'));
+                break;
+            case 'reload':
+                $date = Carbon::createFromDate($request->year, $request->month, 1);
+                $miniCalendar = $this->calendar->getCalendar($date->timestamp);
+                return Inertia::render('Dashboard', compact('miniCalendar'));
                 break;
             default:
                 return redirect()->route('dashboard');
         }
         
-        return Inertia::render('Dashboard', compact('miniCalendar'));
+        
     }
 
     public function getPrevMonth($date)

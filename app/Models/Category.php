@@ -20,4 +20,9 @@ class Category extends Model
     {
         return $this->hasMany(Event::class);
     }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucfirst($value);
+    }
 }

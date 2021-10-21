@@ -31516,40 +31516,8 @@ select {
   filter: none;
 }
 
-.blur-0 {
-  --tw-blur: blur(0);
-}
-
-.blur-none {
-  --tw-blur: blur(0);
-}
-
-.blur-sm {
-  --tw-blur: blur(4px);
-}
-
-.blur {
-  --tw-blur: blur(8px);
-}
-
-.blur-md {
-  --tw-blur: blur(12px);
-}
-
-.blur-lg {
-  --tw-blur: blur(16px);
-}
-
-.blur-xl {
-  --tw-blur: blur(24px);
-}
-
-.blur-2xl {
-  --tw-blur: blur(40px);
-}
-
-.blur-3xl {
-  --tw-blur: blur(64px);
+.blur-xs {
+  --tw-blur: blur(2px);
 }
 
 .brightness-0 {
@@ -31759,40 +31727,8 @@ select {
           backdrop-filter: none;
 }
 
-.backdrop-blur-0 {
-  --tw-backdrop-blur: blur(0);
-}
-
-.backdrop-blur-none {
-  --tw-backdrop-blur: blur(0);
-}
-
-.backdrop-blur-sm {
-  --tw-backdrop-blur: blur(4px);
-}
-
-.backdrop-blur {
-  --tw-backdrop-blur: blur(8px);
-}
-
-.backdrop-blur-md {
-  --tw-backdrop-blur: blur(12px);
-}
-
-.backdrop-blur-lg {
-  --tw-backdrop-blur: blur(16px);
-}
-
-.backdrop-blur-xl {
-  --tw-backdrop-blur: blur(24px);
-}
-
-.backdrop-blur-2xl {
-  --tw-backdrop-blur: blur(40px);
-}
-
-.backdrop-blur-3xl {
-  --tw-backdrop-blur: blur(64px);
+.backdrop-blur-xs {
+  --tw-backdrop-blur: blur(2px);
 }
 
 .backdrop-brightness-0 {
@@ -62803,40 +62739,8 @@ select {
     filter: none;
   }
 
-  .sm\:blur-0 {
-    --tw-blur: blur(0);
-  }
-
-  .sm\:blur-none {
-    --tw-blur: blur(0);
-  }
-
-  .sm\:blur-sm {
-    --tw-blur: blur(4px);
-  }
-
-  .sm\:blur {
-    --tw-blur: blur(8px);
-  }
-
-  .sm\:blur-md {
-    --tw-blur: blur(12px);
-  }
-
-  .sm\:blur-lg {
-    --tw-blur: blur(16px);
-  }
-
-  .sm\:blur-xl {
-    --tw-blur: blur(24px);
-  }
-
-  .sm\:blur-2xl {
-    --tw-blur: blur(40px);
-  }
-
-  .sm\:blur-3xl {
-    --tw-blur: blur(64px);
+  .sm\:blur-xs {
+    --tw-blur: blur(2px);
   }
 
   .sm\:brightness-0 {
@@ -63046,40 +62950,8 @@ select {
             backdrop-filter: none;
   }
 
-  .sm\:backdrop-blur-0 {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .sm\:backdrop-blur-none {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .sm\:backdrop-blur-sm {
-    --tw-backdrop-blur: blur(4px);
-  }
-
-  .sm\:backdrop-blur {
-    --tw-backdrop-blur: blur(8px);
-  }
-
-  .sm\:backdrop-blur-md {
-    --tw-backdrop-blur: blur(12px);
-  }
-
-  .sm\:backdrop-blur-lg {
-    --tw-backdrop-blur: blur(16px);
-  }
-
-  .sm\:backdrop-blur-xl {
-    --tw-backdrop-blur: blur(24px);
-  }
-
-  .sm\:backdrop-blur-2xl {
-    --tw-backdrop-blur: blur(40px);
-  }
-
-  .sm\:backdrop-blur-3xl {
-    --tw-backdrop-blur: blur(64px);
+  .sm\:backdrop-blur-xs {
+    --tw-backdrop-blur: blur(2px);
   }
 
   .sm\:backdrop-brightness-0 {
@@ -94091,40 +93963,8 @@ select {
     filter: none;
   }
 
-  .md\:blur-0 {
-    --tw-blur: blur(0);
-  }
-
-  .md\:blur-none {
-    --tw-blur: blur(0);
-  }
-
-  .md\:blur-sm {
-    --tw-blur: blur(4px);
-  }
-
-  .md\:blur {
-    --tw-blur: blur(8px);
-  }
-
-  .md\:blur-md {
-    --tw-blur: blur(12px);
-  }
-
-  .md\:blur-lg {
-    --tw-blur: blur(16px);
-  }
-
-  .md\:blur-xl {
-    --tw-blur: blur(24px);
-  }
-
-  .md\:blur-2xl {
-    --tw-blur: blur(40px);
-  }
-
-  .md\:blur-3xl {
-    --tw-blur: blur(64px);
+  .md\:blur-xs {
+    --tw-blur: blur(2px);
   }
 
   .md\:brightness-0 {
@@ -94334,40 +94174,8 @@ select {
             backdrop-filter: none;
   }
 
-  .md\:backdrop-blur-0 {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .md\:backdrop-blur-none {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .md\:backdrop-blur-sm {
-    --tw-backdrop-blur: blur(4px);
-  }
-
-  .md\:backdrop-blur {
-    --tw-backdrop-blur: blur(8px);
-  }
-
-  .md\:backdrop-blur-md {
-    --tw-backdrop-blur: blur(12px);
-  }
-
-  .md\:backdrop-blur-lg {
-    --tw-backdrop-blur: blur(16px);
-  }
-
-  .md\:backdrop-blur-xl {
-    --tw-backdrop-blur: blur(24px);
-  }
-
-  .md\:backdrop-blur-2xl {
-    --tw-backdrop-blur: blur(40px);
-  }
-
-  .md\:backdrop-blur-3xl {
-    --tw-backdrop-blur: blur(64px);
+  .md\:backdrop-blur-xs {
+    --tw-backdrop-blur: blur(2px);
   }
 
   .md\:backdrop-brightness-0 {
@@ -125379,40 +125187,8 @@ select {
     filter: none;
   }
 
-  .lg\:blur-0 {
-    --tw-blur: blur(0);
-  }
-
-  .lg\:blur-none {
-    --tw-blur: blur(0);
-  }
-
-  .lg\:blur-sm {
-    --tw-blur: blur(4px);
-  }
-
-  .lg\:blur {
-    --tw-blur: blur(8px);
-  }
-
-  .lg\:blur-md {
-    --tw-blur: blur(12px);
-  }
-
-  .lg\:blur-lg {
-    --tw-blur: blur(16px);
-  }
-
-  .lg\:blur-xl {
-    --tw-blur: blur(24px);
-  }
-
-  .lg\:blur-2xl {
-    --tw-blur: blur(40px);
-  }
-
-  .lg\:blur-3xl {
-    --tw-blur: blur(64px);
+  .lg\:blur-xs {
+    --tw-blur: blur(2px);
   }
 
   .lg\:brightness-0 {
@@ -125622,40 +125398,8 @@ select {
             backdrop-filter: none;
   }
 
-  .lg\:backdrop-blur-0 {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .lg\:backdrop-blur-none {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .lg\:backdrop-blur-sm {
-    --tw-backdrop-blur: blur(4px);
-  }
-
-  .lg\:backdrop-blur {
-    --tw-backdrop-blur: blur(8px);
-  }
-
-  .lg\:backdrop-blur-md {
-    --tw-backdrop-blur: blur(12px);
-  }
-
-  .lg\:backdrop-blur-lg {
-    --tw-backdrop-blur: blur(16px);
-  }
-
-  .lg\:backdrop-blur-xl {
-    --tw-backdrop-blur: blur(24px);
-  }
-
-  .lg\:backdrop-blur-2xl {
-    --tw-backdrop-blur: blur(40px);
-  }
-
-  .lg\:backdrop-blur-3xl {
-    --tw-backdrop-blur: blur(64px);
+  .lg\:backdrop-blur-xs {
+    --tw-backdrop-blur: blur(2px);
   }
 
   .lg\:backdrop-brightness-0 {
@@ -156667,40 +156411,8 @@ select {
     filter: none;
   }
 
-  .xl\:blur-0 {
-    --tw-blur: blur(0);
-  }
-
-  .xl\:blur-none {
-    --tw-blur: blur(0);
-  }
-
-  .xl\:blur-sm {
-    --tw-blur: blur(4px);
-  }
-
-  .xl\:blur {
-    --tw-blur: blur(8px);
-  }
-
-  .xl\:blur-md {
-    --tw-blur: blur(12px);
-  }
-
-  .xl\:blur-lg {
-    --tw-blur: blur(16px);
-  }
-
-  .xl\:blur-xl {
-    --tw-blur: blur(24px);
-  }
-
-  .xl\:blur-2xl {
-    --tw-blur: blur(40px);
-  }
-
-  .xl\:blur-3xl {
-    --tw-blur: blur(64px);
+  .xl\:blur-xs {
+    --tw-blur: blur(2px);
   }
 
   .xl\:brightness-0 {
@@ -156910,40 +156622,8 @@ select {
             backdrop-filter: none;
   }
 
-  .xl\:backdrop-blur-0 {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .xl\:backdrop-blur-none {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .xl\:backdrop-blur-sm {
-    --tw-backdrop-blur: blur(4px);
-  }
-
-  .xl\:backdrop-blur {
-    --tw-backdrop-blur: blur(8px);
-  }
-
-  .xl\:backdrop-blur-md {
-    --tw-backdrop-blur: blur(12px);
-  }
-
-  .xl\:backdrop-blur-lg {
-    --tw-backdrop-blur: blur(16px);
-  }
-
-  .xl\:backdrop-blur-xl {
-    --tw-backdrop-blur: blur(24px);
-  }
-
-  .xl\:backdrop-blur-2xl {
-    --tw-backdrop-blur: blur(40px);
-  }
-
-  .xl\:backdrop-blur-3xl {
-    --tw-backdrop-blur: blur(64px);
+  .xl\:backdrop-blur-xs {
+    --tw-backdrop-blur: blur(2px);
   }
 
   .xl\:backdrop-brightness-0 {
@@ -187955,40 +187635,8 @@ select {
     filter: none;
   }
 
-  .\32xl\:blur-0 {
-    --tw-blur: blur(0);
-  }
-
-  .\32xl\:blur-none {
-    --tw-blur: blur(0);
-  }
-
-  .\32xl\:blur-sm {
-    --tw-blur: blur(4px);
-  }
-
-  .\32xl\:blur {
-    --tw-blur: blur(8px);
-  }
-
-  .\32xl\:blur-md {
-    --tw-blur: blur(12px);
-  }
-
-  .\32xl\:blur-lg {
-    --tw-blur: blur(16px);
-  }
-
-  .\32xl\:blur-xl {
-    --tw-blur: blur(24px);
-  }
-
-  .\32xl\:blur-2xl {
-    --tw-blur: blur(40px);
-  }
-
-  .\32xl\:blur-3xl {
-    --tw-blur: blur(64px);
+  .\32xl\:blur-xs {
+    --tw-blur: blur(2px);
   }
 
   .\32xl\:brightness-0 {
@@ -188198,40 +187846,8 @@ select {
             backdrop-filter: none;
   }
 
-  .\32xl\:backdrop-blur-0 {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .\32xl\:backdrop-blur-none {
-    --tw-backdrop-blur: blur(0);
-  }
-
-  .\32xl\:backdrop-blur-sm {
-    --tw-backdrop-blur: blur(4px);
-  }
-
-  .\32xl\:backdrop-blur {
-    --tw-backdrop-blur: blur(8px);
-  }
-
-  .\32xl\:backdrop-blur-md {
-    --tw-backdrop-blur: blur(12px);
-  }
-
-  .\32xl\:backdrop-blur-lg {
-    --tw-backdrop-blur: blur(16px);
-  }
-
-  .\32xl\:backdrop-blur-xl {
-    --tw-backdrop-blur: blur(24px);
-  }
-
-  .\32xl\:backdrop-blur-2xl {
-    --tw-backdrop-blur: blur(40px);
-  }
-
-  .\32xl\:backdrop-blur-3xl {
-    --tw-backdrop-blur: blur(64px);
+  .\32xl\:backdrop-blur-xs {
+    --tw-backdrop-blur: blur(2px);
   }
 
   .\32xl\:backdrop-brightness-0 {

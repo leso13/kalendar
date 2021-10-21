@@ -1,7 +1,7 @@
 <template>
     <modal-layout v-show="showModal" @click.self="hideModal">
         <template #header>
-            <h1 class="">Pridať kategóriu</h1>
+            <h1 class="">Upraviť kategóriu</h1>
         </template>
         <div>
             <form @submit.prevent="submitForm">
@@ -10,7 +10,7 @@
                         <label>Názov</label>
                     </template>
                     <template #input>
-                        <text-input type="text" class="p-2 block w-full bg-gray-200 border-transparent" v-model="formCategory.name" :errors="formCategory.errors.name" />
+                        <text-input type="text" class="p-2 block w-full bg-gray-200 border-transparent" v-model="formCategory.name"/>
                     </template>
                 </form-layout>
                 <form-layout>
@@ -37,8 +37,8 @@
                 </form-layout>
                 <form-layout>
                     <template #buttons>
-                        <modal-button class="bg-gray-200 text-gray-500" type="button" @click="showModal = false">Zavriet</modal-button>
-                        <modal-button class="bg-gray-500 text-gray-100 ml-2">Pridať</modal-button>
+                        <modal-button class="bg-gray-200 text-gray-500" type="button">Zavriet</modal-button>
+                        <modal-button class="bg-gray-500 text-gray-100 ml-2">Upraviť</modal-button>
                     </template>
                 </form-layout>
 
@@ -64,9 +64,13 @@
             ModalButton,
             ErrorsInline,
         },
+        props: {
+            control: Object,
+        },
         data() {
             return {
                 formCategory: this.$inertia.form({
+                    id: null,
                     name: null,
                     color: null,
                 }),
@@ -74,23 +78,28 @@
             }
         },
         mounted () {
-            window.eventBus.on('showModalAddCategory', showModal => {
-                this.showModal = true;
+            window.eventBus.on('showEditCategoryModal', category => {
+                // console.log(category)
+                this.formCategory.id = category.id
+                this.formCategory.name = category.name
+                this.formCategory.color = category.color
+                this.showModal = true
             })
         },
         methods: {
             submitForm() {
-                this.formCategory.post(this.route('categories.store'), {
+                this.formCategory.put(this.route('categories.update', this.formCategory.id), {
                     only: ['categories', 'errors'],
                     onSuccess: () => {
+                        this.$inertia.post('/dashboard', { control: 'reload', month: this.control.month, year: this.control.year }, { only: ['miniCalendar'], preserveScroll: true })
                         this.hideModal()
                     },
                    
                 })
             },
             hideModal() {
-                this.formCategory.clearErrors(),
                 this.formCategory.reset(),
+                this.formCategory.clearErrors(),
                 this.showModal = false
             }
         },

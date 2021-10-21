@@ -14,6 +14,12 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        blur: {
+            xs: '2px',
+        },
+        backdropBlur: {
+            xs: '2px',
+        },
     },
 
     variants: {

@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-between items-center mb-3">
         <div class="">
-            <h1 class="capitalize font-bold text-xl">{{ month_name(month) }} {{ year }}</h1>
+            <h1 class="capitalize font-bold text-xl">{{ month_name(control.month) }} {{ control.year }}</h1>
         </div>
         <div class="flex">
             <button class="focus:outline-none" @click="getPrevMonth()">
@@ -26,15 +26,14 @@
             ChevronRightIcon,
         },
         props: {
-            year: Number,
-            month: Number,
+            control: Object,
         },
         methods: {
             getPrevMonth() {
-                Inertia.post('/dashboard', { control: 'prev', month: this.month, year: this.year }, { only: ['miniCalendar'], preserveScroll: true })
+                Inertia.post('/dashboard', { control: 'prev', month: this.control.month, year: this.control.year }, { only: ['miniCalendar'], preserveScroll: true })
             },
             getNextMonth() {
-                Inertia.post('/dashboard', { control: 'next', month: this.month, year: this.year }, { only: ['miniCalendar'], preserveScroll: true })
+                Inertia.post('/dashboard', { control: 'next', month: this.control.month, year: this.control.year }, { only: ['miniCalendar'], preserveScroll: true })
             },
         },
     }

@@ -33,7 +33,7 @@ Route::get('/', function () {
     
 });
 
-Route::resource('category', CategoryController::class)
+Route::resource('categories', CategoryController::class)
     ->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', [MainController::class, 'index'])
@@ -42,7 +42,7 @@ Route::get('/dashboard', [MainController::class, 'index'])
 
 Route::post('/dashboard', [MainController::class, 'api'])
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('api');
 
 
 
