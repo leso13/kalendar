@@ -1,9 +1,5 @@
 <template>
     <div class="fixed text-gray-500 flex items-center justify-center overflow-auto left-0 right-0 top-0 bottom-0 bg-gray-600 bg-opacity-60 backdrop-filter backdrop-blur-xs" >
-
-        <!-- @click.self="showModalOverlay = false" -->
-        <!-- v-show="showModalOverlay" -->
-
         <div class="bg-gray-100 rounded-xl shadow-lg p-6 mx-4 w-2/4">
             <!-- Modal Heading -->
             <header class="text-2xl mb-5 font-bold text-gray-800">
@@ -19,11 +15,7 @@
 
 <script>
     export default {
-        data() {
-            return {
-                showModalOverlay: true
-            }
-        },
+       
     }
 </script>
 

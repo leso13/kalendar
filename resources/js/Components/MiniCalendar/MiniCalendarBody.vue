@@ -9,8 +9,14 @@
         <div class="grid grid-cols-7 gap-1 rounded-xl hover:bg-gray-100"
             v-for="(days, index) in chunkedDays" :key="index">
             <span class="py-1 text-center hover:bg-blue-200 rounded-xl cursor-pointer"
-                :class="day.active ? 'font-bold text-gray-600' : 'text-gray-500'"
+                :class="[ 
+                    day.today ? todayClass : 
+                        (day.activeMonth ? activeMonthClass : innactiveMonthClass), 
+                    day.selected ? selectedClass : '' 
+                ]"
+                @click="getDay(day.timestamp)"
                 v-for="(day, index) in days" :key="index">
+                
                 {{ day.number }}
             </span>
         </div>
@@ -22,9 +28,23 @@
         props: {
             days: Object,
         },
+        data() {
+            return {
+                selectedClass: 'bg-blue-50 ring-inset ring-2 ring-blue-100',
+                activeMonthClass: 'text-gray-700 font-bold',
+                todayClass: 'text-blue-500 font-bold',
+                innactiveMonthClass: 'text-gray-500',
+                // :class="day.today ? 'text-blue-500 font-bold' : day.activeMonth ? 'text-gray-700 font-bold' : 'text-gray-500'"
+            }
+        },
         computed: {
             chunkedDays() {
                 return _.chunk(this.days, 7)
+            }
+        },
+        methods: {
+            getDay(TS) {
+                this.$emit('getDay', TS)
             }
         },
     }

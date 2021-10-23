@@ -5,6 +5,7 @@
         />
         <mini-calendar-body 
             :days="miniCalendar.days"
+            @getDay="getDay"
         />
     </div>
 </template>
@@ -18,6 +19,17 @@
         
         props: {
             miniCalendar: Object,
+        },
+
+        methods: {
+            getDay(TS) {
+                this.$inertia.post('/dashboard', { 
+                        control: 'day', 
+                        timestamp: TS, 
+                    }, 
+                    { only: ['miniCalendar', 'week'], preserveScroll: true }
+                )
+            }
         },
     }
 </script>

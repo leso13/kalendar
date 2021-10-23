@@ -10,7 +10,7 @@
                         <label>Názov</label>
                     </template>
                     <template #input>
-                        <text-input type="text" class="p-2 block w-full bg-gray-200 border-transparent" v-model="formCategory.name" :errors="formCategory.errors.name" />
+                        <text-input type="text" class="p-2 block w-full bg-gray-200 border-transparent" v-model="formCategory.name" />
                     </template>
                 </form-layout>
                 <form-layout>

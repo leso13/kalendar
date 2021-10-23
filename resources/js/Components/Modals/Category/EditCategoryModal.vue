@@ -66,6 +66,7 @@
         },
         props: {
             control: Object,
+            controlWeek: Object,
         },
         data() {
             return {
@@ -91,7 +92,15 @@
                 this.formCategory.put(this.route('categories.update', this.formCategory.id), {
                     only: ['categories', 'errors'],
                     onSuccess: () => {
-                        this.$inertia.post('/dashboard', { control: 'reload', month: this.control.month, year: this.control.year }, { only: ['miniCalendar'], preserveScroll: true })
+                        this.$inertia.post('/dashboard', { 
+                                control: 'reload', 
+                                month: this.control.month, 
+                                year: this.control.year,
+                                weekTS: this.controlWeek.selectedDay 
+                            }, 
+                            { only: ['miniCalendar', 'week'], preserveScroll: true }
+                        )
+                        
                         this.hideModal()
                     },
                    

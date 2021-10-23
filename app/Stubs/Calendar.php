@@ -26,7 +26,6 @@ class Calendar
         $control->selectedDay = $selectedDay->timestamp;
         $calendar->control = $control;
 
-        $currentMonth = $selectedDay->month;
         $tempDay = $selectedDay->copy()->startOfMonth();
 
         $skip = $tempDay->dayOfWeekIso - 1;
@@ -35,11 +34,12 @@ class Calendar
         for ( $i = 0; $i < 42; $i ++ )
         {
             $day = new stdClass();
-            $day->date = ( date('Y-m-d', $tempDay->timestamp) );
             $day->timestamp = $tempDay->timestamp;
+            $day->date = ( date('Y-m-d', $day->timestamp) );
             $day->number = $tempDay->day;
-            
-            $tempDay->month === $currentMonth ? ( $day->active = true ) : ( $day->active = false );
+            $day->timestamp === $today->timestamp ? ( $day->today = true ) : ( $day->today = false );
+            $day->timestamp === $selectedDay->timestamp ? ( $day->selected = true ) : ( $day->selected = false );
+            $tempDay->month === $control->month ? ( $day->activeMonth = true ) : ( $day->activeMonth = false );
 
             array_push( $calendar->days, $day );
             $tempDay->addDay();
@@ -56,11 +56,33 @@ class Calendar
         $today = Carbon::today();
 
         !empty($TS) ? ( $selectedDay = Carbon::createFromTimestamp($TS)->startOfDay() ) : ( $selectedDay = $today );
+        
+        $tempDay = $selectedDay->copy()->startOfWeek();
 
-        $control->month = $selectedDay->month;
-        $control->year = $selectedDay->year;
         $control->selectedDay = $selectedDay->timestamp;
+        $control->month = $tempDay->month;
+        $control->year = $tempDay->year;
+
+        $control->firstDay = $tempDay->day;
+        $control->firstMonth = $tempDay->month;
+
+        $control->lastDay = $tempDay->copy()->addDays(6)->day;
+        $control->lastMonth = $tempDay->copy()->addDays(6)->month;
+
         $calendar->control = $control;
+
+        for ( $i = 0; $i < 7; $i ++ )
+        {
+            $day = new stdClass();
+            $day->date = ( date('Y-m-d', $tempDay->timestamp) );
+            $day->timestamp = $tempDay->timestamp;
+            $day->number = $tempDay->day;
+            $day->index = $i;
+
+            array_push( $calendar->days, $day );
+            $tempDay->addDay();
+        }
+        return $calendar;
     }
 
 }

@@ -1,6 +1,6 @@
 export default {
     methods: {
-        month_name(month) {
+        monthName(month) {
             switch (month) {
                 case 1:
                     return "január";
@@ -29,7 +29,7 @@ export default {
             }
             return "undefined"
         },
-        month_short_name(month) {
+        monthShortName(month) {
             switch (month) {
                 case 1:
                     return "jan";
@@ -57,6 +57,18 @@ export default {
                     return "dec";
             }
             return "undefined"
-        }
+        },
+        dayName(number) {
+            switch (number) {
+                case 0: return "pon";
+                case 1: return "uto";
+                case 2: return "str";
+                case 3: return "štv";
+                case 4: return "pia";
+                case 5: return "sob";
+                case 6: return "ned";
+            }
+        return "undefined"
+        },
     },
 };

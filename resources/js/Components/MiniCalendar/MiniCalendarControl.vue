@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-between items-center mb-3">
         <div class="">
-            <h1 class="capitalize font-bold text-xl">{{ month_name(control.month) }} {{ control.year }}</h1>
+            <h1 class="capitalize font-bold text-xl">{{ monthName(control.month) }} {{ control.year }}</h1>
         </div>
         <div class="flex">
             <button class="focus:outline-none" @click="getPrevMonth()">
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-    import MonthNames from '@/Mixins/MonthNames.js'
+    import calendarNames from '@/Mixins/calendarNames.js'
     import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/solid'
     import { Inertia } from '@inertiajs/inertia'
 
     export default {
-        mixins: [ MonthNames ],
+        mixins: [ calendarNames ],
         components: {
             ChevronLeftIcon,
             ChevronRightIcon,
