@@ -71,6 +71,10 @@ class MainController extends Controller
                 $modalCalendar = $this->calendar->getCalendar($request->selectedDay);
                 return Inertia::render('Dashboard', compact('modalCalendar'));
             break;
+            case 'modalCalendarStart' :
+                $modalCalendar = $this->calendar->getCalendar($request->selectedDay, 'start');
+                return Inertia::render('Dashboard', compact('modalCalendar'));
+            break;
                 break;
             default:
                 return redirect()->route('dashboard');
@@ -82,7 +86,7 @@ class MainController extends Controller
     public function getPrevMonth($date)
     {
         $date->subMonth();
-        $miniCalendar = $this->calendar->getCalendar($date->timestamp);
+        $miniCalendar = $this->calendar->getCalendar($date->timestamp, true);
 
         return $miniCalendar;
     }
@@ -90,7 +94,7 @@ class MainController extends Controller
     public function getNextMonth($date)
     {
         $date->addMonth();
-        $miniCalendar = $this->calendar->getCalendar($date->timestamp);
+        $miniCalendar = $this->calendar->getCalendar($date->timestamp, true);
 
         return $miniCalendar;
     }

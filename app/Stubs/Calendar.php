@@ -11,7 +11,7 @@ class Calendar
 {
     protected $calendar;
 
-    public function getCalendar($TS = '')
+    public function getCalendar($TS = '', $select = '')
     {
         $calendar = new Calendar();
         $control = new stdClass();
@@ -19,6 +19,7 @@ class Calendar
         $calendar->days = [];
         $today = Carbon::today();
         
+
         !empty($TS) ? ( $selectedDay = Carbon::createFromTimestamp($TS)->startOfDay() ) : ( $selectedDay = $today );
 
         $control->month = $selectedDay->month;
@@ -38,7 +39,9 @@ class Calendar
             $day->date = ( date('Y-m-d', $day->timestamp) );
             $day->number = $tempDay->day;
             $day->timestamp === $today->timestamp ? ( $day->today = true ) : ( $day->today = false );
-            $day->timestamp === $selectedDay->timestamp ? ( $day->selected = true ) : ( $day->selected = false );
+            empty($select) ? ($day->timestamp === $selectedDay->timestamp ? ( $day->selected = true ) : ( $day->selected = false )) : $day->selected = false;
+            // $day->timestamp === $selectedDay->timestamp ? ( $day->selected = true ) : ( $day->selected = false );
+
             $tempDay->month === $control->month ? ( $day->activeMonth = true ) : ( $day->activeMonth = false );
 
             array_push( $calendar->days, $day );

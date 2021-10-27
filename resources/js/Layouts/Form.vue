@@ -8,7 +8,7 @@
                 <slot name="input"/>
             </div>
         </div>
-        <div class="mt-3 float-right">
+        <div class="mt-3 float-right" v-if="$slots.buttons">
             <slot name="buttons" />
         </div>
     </div>

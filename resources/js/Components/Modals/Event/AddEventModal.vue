@@ -2,7 +2,7 @@
     <modal-layout v-show="showModal" @click.self="hideModal">
         <template #header>
             <h1 class="">Pridať udalosť
-                <button class="float-right text-gray-500 hover:text-blue-500">    
+                <button class="float-right text-gray-400 hover:text-red-400" @click="hideModal">    
                     <x-circle-icon class="w-6 h-6"/>
                 </button>
             </h1>
@@ -12,7 +12,7 @@
                 <mini-calendar-body :days="modalCalendar.days" @getDay="getDay"/>
             </div>
             <div class="col-span-1">
-                <form @submit.prevent="submitForm">
+                <form @submit.prevent="submitForm" class="h-full relative">
                     <form-layout>
                         <template #label>
                             <label>Názov</label>
@@ -26,7 +26,7 @@
                             <errors-inline v-if="formEvent.errors.name" :errors="formEvent.errors.name"/>
                         </template>
                     </form-layout>
-                    <form-layout>
+                    <form-layout class="absolute bottom-0 right-0">
                         <template #buttons>
                             <modal-button class="bg-gray-200 text-gray-500" type="button" @click="showModal = false">Zavriet</modal-button>
                             <modal-button class="bg-gray-500 text-gray-100 ml-2">Pridať</modal-button>
@@ -79,13 +79,12 @@
         },
         methods: {
             getDay(TS) {
-                console.log(TS)
-                this.$inertia.post('/dashboard', { 
-                        control: 'modalCalendar', 
-                        timestamp: TS, 
-                    }, 
-                    { only: ['modalCalendar'], preserveScroll: true }
-                )
+                // this.$inertia.post('/dashboard', {
+                //         control: 'modalCalendar', 
+                //         timestamp: TS, 
+                //     }, 
+                //     { only: ['modalCalendar'], preserveScroll: true }
+                // )
             },
             submitForm() {
                 // this.formCategory.post(this.route('categories.store'), {
